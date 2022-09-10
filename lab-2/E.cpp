@@ -1,17 +1,6 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-
-
-void count(string s1, string s2, set<string> *strs){
-    for(int i=0; i<s1.size(); i++){
-            string s3 = s1.substr(0,i)+s2+s1.substr(i+1,s1.size()-i);
-            cout<<s3<<"\n";
-            count(s3, s2, strs);
-        }
-}
-
-
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
@@ -20,13 +9,18 @@ int main() {
     while(t--){
         string s1,s2;
         cin>>s1>>s2;
-        set<string> strs;
-        if(s2.find('a')!=string::npos){
-            cout<<"-1\n";
+        if(s2=="a"){
+            cout<<"1\n";
             continue;
         }
-        count(s1,s2,&strs);
-
+        unsigned long long a = 0;
+        for(auto i:s2){
+            if(i=='a') a++;
+        }
+        if(a>0){
+            cout<<"-1\n";
+        }
+        else cout<<(((unsigned long long)1)<<s1.size())<<"\n";
     }
     return 0;
 }
