@@ -31,7 +31,6 @@ int main() {
         int pos;
         cin>>pos;
         s1[--pos] = '0';
-        // cout<<s1<<" "<<count<<"\n";
         if(checkForSubstr(s1,s2)) count++;
         else{
             cout<<count<<"\n";
